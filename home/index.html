@@ -46,15 +46,6 @@
         <p id="d"></p>
     </div>
     <script>
-        function get(i) {
-            return parseInt(document.getElementById(i).value);
-        }
-        
-	function geti(i) {
-           var arr = date.split(/[- :]/);
-           date = new Date(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]);
-           return date;
-       }
 	    
         function main() {
             var R1 = parseFloat(document.getElementById("R1").value);
@@ -63,11 +54,7 @@
             document.querySelector("p#r").innerHTML = "هێندی بەکارهاتوو: " + parseInt(r(R1, R2));
 	    var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 	    var ds;
-	    if (!iOS) {
-               ds = d(new Date(get('D1Y') + "-" + get('D1M') + "-" + get('D1D')), new Date(get('D2Y') + "-" + get('D2M') + "-" + get('D2D')));
-	    } else {
-	       ds = d(geti(new Date(get('D1Y') + "-" + get('D1M') + "-" + get('D1D'))), geti(new Date(get('D2Y') + "-" + get('D2M') + "-" + get('D2D'))));
-	    }
+            ds = d(new Date(get('D1Y'), get('D1M'), get('D1D')), new Date(get('D2Y'), get('D2M'), get('D2D')));
             
             if (ds.toString().includes(".")) {
                ds = Math.round(ds); 
