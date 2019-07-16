@@ -4,7 +4,7 @@ function m(R1, R2, D1, D2) {
     var D = (D2 - D1) / (1000*60*60*24);
     var X = R/D;
     
-    if (X >= 2000) {
+    if (X >= 2050) {
         return;
     }
     
