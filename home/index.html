@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html dir="rtl">
 
 <head>
@@ -40,40 +40,36 @@
         <input type="text" placeholder="ڕۆژ" id="D2D" class="form-control">
         <input type="text" placeholder="مانگ" id="D2M" class="form-control">
         <input type="text" placeholder="ساڵ" id="D2Y" class="form-control" style="border-bottom-right-radius: .25rem;border-bottom: 1px solid #ced4da">
-        <button class="btn btn-primary" onclick="main()" style="border-top-right-radius: 0;border-top-left-radius: 0;">دەستکەوتنی ئەنجامەکان</button>
+        <button class="btn btn-primary" onclick="main();" style="border-top-right-radius: 0;border-top-left-radius: 0;">دەستکەوتنی ئەنجامەکان</button>
         <p id="m"></p>
         <p id="r"></p>
         <p id="d"></p>
     </div>
-    <script>
+    <script>function get(n) {
+    return parseInt(document.getElementById(n).value);
+}
 	    
-	function get(e) { return parseInt(document.getElementById(e).value); }
-	    
-        function main() {
-            var R1 = parseFloat(document.getElementById("R1").value);
-            var R2 = parseFloat(document.getElementById("R2").value);
-            document.querySelector("p#m").innerHTML = "بڕی پارەی ئێستا: " + m(R1, R2, new Date(get('D1Y'), get('D1M'), get('D1D')), new Date(get('D2Y'), get('D2M'), get('D2D')));
-            document.querySelector("p#r").innerHTML = "هێندی بەکارهاتوو: " + parseInt(r(R1, R2));
-	    var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-	    var ds;
-            ds = d(new Date(get('D1Y'), get('D1M'), get('D1D')), new Date(get('D2Y'), get('D2M'), get('D2D')));
-            
-            if (ds.toString().includes(".")) {
-               ds = Math.round(ds); 
-            }
-            
-            document.querySelector("p#d").innerHTML = "ڕۆژ: " + ds;
-
-            if (document.querySelector("p#m").innerHTML.includes(".")) {
-                document.querySelector("p#m").innerHTML = Math.round((m(R1, R2, new Date(get('D1Y'), get('D1M'), get('D1D')), new Date(get('D2Y'), get('D2M'), get('D2D'))))) + " :بڕی پاره‌ی ئێستا";
-            }
-
-            if (document.querySelector("p#m").innerHTML.includes("-") || document.querySelector("p#m").innerHTML.includes("NaN") || document.querySelector("p#m").innerHTML.includes("undefined")) {
-                document.querySelector("p#r").innerHTML = "";
-                document.querySelector("p#d").innerHTML = "";
-                document.querySelector("p#m").innerHTML = ".هەڵەیەک ڕوویدا، تکایە دواتر هەوڵ بدەرەوە";
-            }
-        }
+function main() {
+    var R1 = parseFloat(document.getElementById("R1").value);
+    var R2 = parseFloat(document.getElementById("R2").value);
+    document.querySelector("p#m").innerHTML = "بڕی پارەی ئێستا: " + m(R1, R2, new Date(get('D1Y'), get('D1M'), get('D1D')), new Date(get('D2Y'), get('D2M'), get('D2D')));
+    document.querySelector("p#r").innerHTML = "هێندی بەکارهاتوو: " + parseInt(r(R1, R2));
+    var ds = d(new Date(get('D1Y'), get('D1M'), get('D1D')), new Date(get('D2Y'), get('D2M'), get('D2D')));
+    
+    if (ds.toString().includes(".")) {
+        ds = Math.round(ds); 
+    }
+    
+    document.querySelector("p#d").innerHTML = "ڕۆژ: " + ds;
+    if (document.querySelector("p#m").innerHTML.includes(".")) {
+        document.querySelector("p#m").innerHTML = Math.round((m(R1, R2, new Date(get('D1Y'), get('D1M'), get('D1D')), new Date(get('D2Y'), get('D2M'), get('D2D'))))) + " :بڕی پاره‌ی ئێستا";
+    }
+    if (document.querySelector("p#m").innerHTML.includes("-") || document.querySelector("p#m").innerHTML.includes("NaN") || document.querySelector("p#m").innerHTML.includes("undefined")) {
+        document.querySelector("p#r").innerHTML = "";
+        document.querySelector("p#d").innerHTML = "";
+        document.querySelector("p#m").innerHTML = ".هەڵەیەک ڕوویدا، تکایە دواتر هەوڵ بدەرەوە";
+    }
+}
     </script>
 
 </body>
