@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EC > CKB > ماڵ</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/app.js"></script>
+    <style>
+        input.form-control {
+            border-radius: 0;
+            border-bottom: none;
+        }
+
+        input.form-control:focus {
+            box-shadow: none !important;
+            border-color: #ced4da;
+        }
+
+	p {
+	   text-align: right;
+	   width: 100%;
+	}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <br />
+        <a href="../" class="float-right" style="text-align: right">&lsaquo; گەڕانەوە</a>
+        <br />
+        <br />
+        <input type="number" id="R1" placeholder="خوێندنەوەی پێشوو" class="form-control" style="border-top-left-radius: .25rem;border-top-right-radius: .25rem">
+        <input type="number" placeholder="ڕۆژ" id="D1D" class="form-control">
+        <input type="number" placeholder="مانگ" id="D1M" class="form-control">
+        <input type="number" placeholder="ساڵ" id="D1Y" class="form-control">
+        <input type="number" id="R2" placeholder="خوێندنەوەی ئێستا" class="form-control">
+        <input type="number" placeholder="ڕۆژ" id="D2D" class="form-control">
+        <input type="number" placeholder="مانگ" id="D2M" class="form-control">
+        <input type="number" placeholder="ساڵ" id="D2Y" class="form-control" style="border-bottom-right-radius: .25rem;border-bottom: 1px solid #ced4da">
+        <button class="btn btn-primary" onclick="main()" style="border-top-right-radius: 0;border-top-left-radius: 0;">دەستکەوتنی ئەنجامەکان</button>
+        <p id="m"></p>
+        <p id="r"></p>
+        <p id="d"></p>
+    </div>
+    <script>
+        function get(i) {
+            return parseInt(document.getElementById(i).value);
+        }
+        
+        function main() {
+            var R1 = parseFloat(document.getElementById("R1").value);
+            var R2 = parseFloat(document.getElementById("R2").value);
+            document.querySelector("p#m").innerHTML = "بڕی پارەی ئێستا: " + m(R1, R2, new Date(get('D1Y'), get('D1M'), get('D1D')), new Date(get('D2Y'), get('D2M'), get('D2D')));
+            document.querySelector("p#r").innerHTML = "هێندی بەکارهاتوو: " + parseInt(r(R1, R2));
+            var ds = d(new Date(get('D1Y') + "-" + get('D1M') + "-" + get('D1D')), new Date(get('D2Y') + "-" + get('D2M') + "-" + get('D2D')));
+            
+            if (ds.toString().includes(".")) {
+               ds = Math.round(ds); 
+            }
+            
+            document.querySelector("p#d").innerHTML = "ڕۆژ: " + ds;
+
+            if (document.querySelector("p#m").innerHTML.includes(".")) {
+                document.querySelector("p#m").innerHTML = Math.round((m(R1, R2, new Date(get('D1Y'), get('D1M'), get('D1D')), new Date(get('D2Y'), get('D2M'), get('D2D'))))) + " :بڕی پاره‌ی ئێستا";
+            }
+
+            if (document.querySelector("p#m").innerHTML.includes("-") || document.querySelector("p#m").innerHTML.includes("NaN") || document.querySelector("p#m").innerHTML.includes("undefined")) {
+                document.querySelector("p#r").innerHTML = "";
+                document.querySelector("p#d").innerHTML = "";
+                document.querySelector("p#m").innerHTML = ".هەڵەیەک ڕوویدا، تکایە دواتر هەوڵ بدەرەوە";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
