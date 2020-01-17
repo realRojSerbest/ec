@@ -1,7 +1,7 @@
 function m(R1, R2, D1, D2) {
     
     var R = R2 - R1;
-    var D = (D2 - D1) / (1000*60*60*24);
+    var D = (D2.getTime() - D1.getTime()) / (1000*60*60*24);
     var X = R/D;
     
     if (X >= 2050) {
