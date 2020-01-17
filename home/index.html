@@ -58,9 +58,9 @@
 function main() {
     var R1 = parseFloat(document.getElementById("R1").value);
     var R2 = parseFloat(document.getElementById("R2").value);
-    document.querySelector("p#m").innerHTML = "بڕی پارەی ئێستا: " + m(R1, R2, new Date(get('D1Y'), get('D1M'), get('D1D')), new Date(get('D2Y'), get('D2M'), get('D2D')));
+    document.querySelector("p#m").innerHTML = "بڕی پارەی ئێستا: " + m(R1, R2, new Date(get('D1Y') + "/" + get('D1M') + "/" + get('D1D')), new Date(get('D2Y') + "/" + get('D2M') + "/" + get('D2D')));
     document.querySelector("p#r").innerHTML = "هێندی بەکارهاتوو: " + parseInt(r(R1, R2));
-    var ds = d(new Date(get('D1Y'), get('D1M'), get('D1D')), new Date(get('D2Y'), get('D2M'), get('D2D')));
+    var ds = d(new Date(get('D1Y') + "/" + get('D1M') + "/" + get('D1D')), new Date(get('D2Y') + "/" + get('D2M') + "/" + get('D2D')));
     
     if (ds.toString().includes(".")) {
         ds = Math.round(ds); 
