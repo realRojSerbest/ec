@@ -1,27 +1,73 @@
 <!DOCTYPE html>
-<html dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<html lang="ckb" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>بژمێری وزە</title>
-    <meta name="theme-color" content="#ffffff" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.rtl.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>بژمێری وزە</h1>
+      <p class="lead">
+        بزانە چەند، بایی چەند و لە ماوەی چەند ڕۆژدا کارەبات بەکارهێناوە
+      </p>
 
-    <style>
-        div a {
-            width: 100%;
-            border-radius: 0 !important;
-        }
-    </style>
-</head>
-<body>
-    <div class="container" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%)">
-        <h1 class="text-primary text-center">بژمێری وزە</h1>
-        <br />
-        <a href="./work/index.html" class="btn btn-primary">بۆ بازرگانی</a>
-        <a href="./home/index.html" class="btn btn-primary">بۆ ماڵان</a>
+      <div class="row mt-3 mb-3">
+        <div class="col-sm">
+          <label for="xwendineweyPesu" class="form-label"
+            >خوێندنەوەی پێشوو</label
+          >
+          <input id="xwendineweyPesu" type="number" class="form-control" />
+        </div>
+        <div class="col-sm">
+          <label for="berwariPesu" class="form-label">بەرواری پێشوو</label>
+          <input id="berwariPesu" type="date" class="form-control" />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm">
+          <label for="xwendineweyEsta" class="form-label"
+            >خوێندنەوەی ئێستا</label
+          >
+          <input id="xwendineweyEsta" type="number" class="form-control" />
+        </div>
+        <div class="col-sm">
+          <label for="berwariEsta" class="form-label">بەرواری ئێستا</label>
+          <input id="berwariEsta" type="date" class="form-control" />
+        </div>
+      </div>
+      <label for="regeyJimardin" class="form-label">ڕێگەی ژماردن</label>
+      <select id="regeyJimardin" class="form-control">
+        <option value="malan" selected>ماڵ</option>
+        <option value="bazirgani">بازرگانی</option>
+      </select>
+      <textarea
+        disabled
+        class="form-control mt-3"
+        id="encamekan"
+        cols="30"
+        rows="3"
+      >
+ئەنجامەکان لێرە دەبن پاش داخڵکردنی زانیاریی پێویست.</textarea
+      >
     </div>
-</body>
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">© 2019-2021 ڕۆژ سەربەست</p>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a href="https://t.me/rojserbest">پەیوەندی</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://github.com/rojserbest/ec">سەرچاوە</a>
+        </li>
+      </ul>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
