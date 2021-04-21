@@ -64,6 +64,13 @@ const jimardin = {
       pare: xwendinewe(X1, X2) * 130,
     };
   },
+  kistukal: (X1, X2, B1, B2) => {
+    return {
+      xwendinewe: xwendinewe(X1, X2),
+      rojekan: rojekan(B1, B2),
+      pare: xwendinewe(X1, X2) * 30,
+    };
+  },
 };
 
 const getInput = () => {
