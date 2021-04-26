@@ -7,7 +7,7 @@ const rojekan = (B1, B2) => {
 };
 
 const jimardin = {
-  malan: (X1, X2, B1, B2) => {
+  mal: (X1, X2, B1, B2) => {
     let X = xwendinewe(X1, X2),
       R = rojekan(B1, B2),
       pare;
@@ -69,6 +69,66 @@ const jimardin = {
       xwendinewe: xwendinewe(X1, X2),
       rojekan: rojekan(B1, B2),
       pare: xwendinewe(X1, X2) * 30,
+    };
+  },
+  mal2: (X1, X2, B1, B2) => {
+    let X = xwendinewe(X1, X2),
+      R = rojekan(B1, B2),
+      pare;
+    X = X / R;
+
+    if (x == 15 || x < 15) {
+      pare = x * 18 * d;
+    } else if (x > 15 && (x == 30 || x < 30)) {
+      pare = (x - 15) * 24 * d + 15 * 18 * d;
+    } else if (x > 30 && (x == 50 || x < 50)) {
+      pare = (x - 30) * 42 * d + 15 * 24 * d + 15 * 18 * d;
+    } else if (x > 50 && (x == 70 || x < 70)) {
+      pare = (x - 50) * 75 * d + 15 * 24 * d + 15 * 18 * d + 20 * 42 * d;
+    } else if (x > 70 && (x == 100 || x < 100)) {
+      pre =
+        (x - 70) * 90 * d +
+        20 * 75 * d +
+        15 * 24 * d +
+        15 * 18 * d +
+        20 * 42 * d;
+    } else if (x > 100 && (x == 166 || x < 166)) {
+      pare =
+        (x - 100) * 181 * d +
+        30 * 90 * d +
+        20 * 75 * d +
+        15 * 24 * d +
+        15 * 18 * d +
+        20 * 42 * d;
+    } else if (x > 166.67) {
+      pare =
+        (x - 166.67) * 241 * d +
+        166 * 181 * d +
+        30 * 90 * d +
+        20 * 75 * d +
+        15 * 24 * d +
+        15 * 18 * d +
+        20 * 42 * d;
+    }
+
+    return {
+      xwendinewe: xwendinewe(X1, X2),
+      rojekan: rojekan(B1, B2),
+      pare: pare,
+    };
+  },
+  bazirgani2: (X1, X2, B1, B2) => {
+    return {
+      xwendinewe: xwendinewe(X1, X2),
+      rojekan: rojekan(B1, B2),
+      pare: xwendinewe(X1, X2) * 157,
+    };
+  },
+  kistukal2: (X1, X2, B1, B2) => {
+    return {
+      xwendinewe: xwendinewe(X1, X2),
+      rojekan: rojekan(B1, B2),
+      pare: xwendinewe(X1, X2) * 36,
     };
   },
 };
